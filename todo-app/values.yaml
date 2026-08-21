@@ -1,0 +1,18 @@
+namespace: todo-app
+
+frontend:
+  replicas: 2
+  image: todo-frontend-k8s
+  tag: latest
+
+backend:
+  replicas: 2
+  image: docker-to-do-backend
+  tag: latest
+
+mongodb:
+  tag: 8
+  storage: 5Gi
+
+ingress:
+  host: todo.local

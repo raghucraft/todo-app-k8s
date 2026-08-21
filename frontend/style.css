@@ -1,0 +1,145 @@
+/* Remove default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page background */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+/* Main card */
+.container {
+    width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Input and Add button */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Page heading */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Todo input */
+#todoInput {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Highlight input when selected */
+#todoInput:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Common button styles */
+button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Add button */
+button#addBtn {
+    background-color: #4CAF50;
+}
+
+button#addBtn:hover {
+    background-color: #45a049;
+}
+
+/* Complete button */
+button.complete-btn {
+    background-color: #4CAF50;
+}
+
+button.complete-btn:hover {
+    background-color: #45a049;
+}
+
+/* Delete button */
+button.delete-btn {
+    background-color: #f44336;
+}
+
+button.delete-btn:hover {
+    background-color: #d32f2f;
+}
+/* Todo list */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Todo item */
+li {
+    background: #f8f8f8;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: transform 0.2s ease;
+}
+
+/* Lift card on hover */
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Todo text */
+li span {
+    flex: 1;
+    word-break: break-word;
+    margin-right: 20px;
+}
+
+/* Button container */
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* Empty todo list message */
+.empty-message {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+/* Completed todo */
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+

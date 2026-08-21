@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: todo
+    component: backend
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      app: todo
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: todo
+        component: backend
+    spec:
+      containers:
+      - name: docker-to-do-backend
+        image: "{{ .Values.backend.image }}:{{ .Values.backend.tag }}"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000

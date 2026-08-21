@@ -1,0 +1,58 @@
+services:
+
+  # Frontend Service
+  frontend:
+
+    # Build image from ./frontend/Dockerfile
+    build: ./frontend
+    image: todo-frontend-k8s
+
+    # Give the container a readable name
+    container_name: todo-frontend
+
+    # Map host port 8080 to container port 80
+    ports:
+      - "8080:80"
+
+    # Start backend before frontend
+    depends_on:
+      - backend
+
+  # Backend Service
+  backend:
+
+    # Build image from ./backend/Dockerfile
+    build: ./backend
+
+    # Container name
+    container_name: todo-backend
+
+    # Map host port 3000 to container port 3000
+    ports:
+      - "3000:3000"
+
+    # Start MongoDB before backend
+    depends_on:
+      - mongodb
+
+  # MongoDB Database
+  mongodb:
+
+    # Download official MongoDB image
+    image: mongo:8
+
+    # Container name
+    container_name: todo-mongodb
+
+    # Map MongoDB port
+    ports:
+      - "27017:27017"
+
+    # Persist database data even after
+    # container is deleted
+    volumes:
+      - mongodb-data:/data/db
+
+# Named Docker volume
+volumes:
+  mongodb-data:
