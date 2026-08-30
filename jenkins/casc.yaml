@@ -1,0 +1,26 @@
+jenkins:
+  systemMessage: "To do App CI/CD Jenkins"
+
+  numExecutors: 2
+
+  securityRealm:
+    local:
+      allowsSignup: false
+
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+jobs:
+  - script: >
+      job('seed-job') {
+        description('Seed job to create jobs from DSL scripts')
+        
+        steps {
+          dsl {
+            external('/usr/share/jenkins/jobs/seed.groovy')
+            removeAction('IGNORE')
+            removeViewAction('IGNORE')
+          }
+        }
+      } 
