@@ -1,6 +1,5 @@
 jenkins:
   systemMessage: "To do App CI/CD Jenkins"
-
   numExecutors: 2
 
   securityRealm:
@@ -11,3 +10,25 @@ jenkins:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
 
+jobs:
+  - script: >
+      freeStyleJob('seed-job') {
+        description('Seed job for creating jenkins jobs')
+        
+        scm {
+          git {
+            remote {
+              url('https://github.com/raghucraft/todo-app-k8s.git')
+              }
+            branch('*/main')
+            }
+          }
+
+        steps {
+          dsl {
+            targets('jenkins/jobs/seed.groovy')
+            removeAction('IGNORE')
+            removeViewAction('IGNORE')
+          }
+        }
+      }
