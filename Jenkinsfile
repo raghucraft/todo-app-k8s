@@ -7,9 +7,10 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Verifiy')
+        stage('Verify')
             steps {
                 sh 'echo "Todo App pipeline started"'
                 sh 'ls -la'
             }
     }
+}    
