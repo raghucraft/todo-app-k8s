@@ -15,3 +15,8 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+
+# certs 
+kind-jenkins-kubeconfig.yaml
+kind-client.crt
+kind-client.key
