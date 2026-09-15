@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'todo-agent'
+        }
       
     stages {
         stage('checkout') {
