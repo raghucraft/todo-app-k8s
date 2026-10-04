@@ -17,9 +17,8 @@ pipeline {
         }
         stage('Check Docker Environment') {
             steps {
-                sh 'which docker || true'
-                sh 'docker version || true'
-                sh 'ls -l /var/run/docker.sock || true'
+                sh 'docker version'
+                sh 'docker info'
             }
         }
            
